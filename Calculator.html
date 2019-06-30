@@ -3,68 +3,12 @@
 <head>
 	<title>Calculator Web App</title>
 	
+	<script type="text/javascript" src="Jquery-3.4.1.js"></script>
 
-	<script>
-		
-		function display(val){
-			document.getElementById("result").value += val;
-		}
+	<script type="text/javascript" src="Calculator.js"></script>
 
-		function solve(){
-			let x = document.getElementById("result").value;
-			let y = eval(x);
-			document.getElementById("result").value=y;
-		}
+	<link rel="stylesheet" type="text/css" href="Calculator.css">
 
-		function clr(){
-			document.getElementById("result").value = "";
-		}
-
-		function backspace(){
-			var length = document.getElementById("result").value.length;
-			document.getElementById("result").value = result.substring("0,length-1");
-		}
-	</script>
-
-	<style>
-
-		.title{
-			background-color: black;
-			margin-left: 30%;
-			margin-bottom: 5px;
-			text-align: center;
-			width: 35%;
-			color:white;
-			border: solid black 2px;
-			font-size: 20px;
-		}
-
-		input[type = "button"]{
-			background-color: black;
-			color:white;
-			border: solid black 2px;
-			width: 100%;
-		}
-
-		input[type="text"]{
-			font-size: 30;
-			font-family: helvetica;
-			font-weight: bold;
-			border: 5px solid black;
-		}
-
-		.calculator{
-			background-image: linear-gradient(to right,#e6eeff,#e6eeff,#b3ccff,#99bbff,#80aaff);
-			font-size: 20px;
-			position: relative;
-  			width: 400px;
-  			border: 3px solid black;
-  			border-radius: 6px;
-  			margin: 0px auto;
-  			padding: 20px 20px 100px 2
-
-		}
-    </style>
 </head>
 
 
@@ -78,7 +22,7 @@
 	  	
 	  	<tr>
 	  		<td colspan="6"><input class="text" 
-	  			id="result" /></td>
+	  			id="result" size="50"/></td>
 	  	</tr>
 
 	  	<tr>
