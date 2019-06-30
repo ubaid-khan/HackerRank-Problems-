@@ -1,0 +1,38 @@
+
+		.title{
+			background-color: black;
+			margin-left: 30%;
+			margin-bottom: 5px;
+			text-align: center;
+			width: 35%;
+			color:white;
+			border: solid black 2px;
+			font-size: 20px;
+		}
+
+		input[type = "button"]{
+			background-color: black;
+			color:white;
+			border: solid black 2px;
+			width: 100%;
+		}
+
+		input[type="text"]{
+			size: 40;
+			font-size: 30;
+			font-family: helvetica;
+			font-weight: bold;
+			border: 5px solid black;
+		}
+
+		.calculator{
+			background-image: linear-gradient(to right,#e6eeff,#e6eeff,#b3ccff,#99bbff,#80aaff);
+			font-size: 20px;
+			position: relative;
+  			width: 400px;
+  			border: 3px solid black;
+  			border-radius: 6px;
+  			margin: 0px auto;
+  			padding: 20px 20px 100px 2
+
+		}
