@@ -1,130 +1,58 @@
 #include <stdio.h>
 #include <stdlib.h>
+int num_of_customers,i;
 
-struct musicNode{
+struct Customer_Details{
 
-    char songName[100];
-    struct musicNode *prev;
-    struct musicNode *next;
-
-};
-
-struct musicNode *head = NULL;
-
-struct musicNode *createNewMusicNode(){
-
-    struct musicNode *temp;
-    temp = (struct musicNode *)malloc(sizeof(struct musicNode));
-
-    printf("\nEnter song name:");
-    scanf("%s",&temp->songName);
-    temp->prev = NULL;
-    temp->next = NULL;
-
-    return temp;
+    char customer_name[20],city[20],check_in[8],check_out[8],identity_proof[20],payment_method[20];
+    int no_of_rooms,no_of_guests,room_no_alloted;
+    float advance_paid,balance_amount,total_amount;
 
 };
+void acceptCustomerData(struct Customer_Details *c){
+
+   // struct Customer_Details c;
+    printf("\nEnter the customer's name :");
+    scanf("%s",&c->customer_name);
+    printf("\nEnter number of rooms requested by customer :");
+    scanf("%d",&c->no_of_rooms);
+    printf("\nEnter customer's check-in date :");
+    scanf("%s",&c->check_in);
+    printf("\nEnter customer's check-out date :");
+    scanf("%s",&c->check_out);
+    printf("\nEnter customer's identity proof (e.g:adhaar number/voter id etc) :");
+    scanf("%s",&c->identity_proof);
+    printf("\nTotal amount to be paid is :%2f",c->total_amount);
+    printf("\nEnter amount being paid in advance :");
+    scanf("%s",&c->advance_paid);
+    printf("\nBalance amount to be paid is %2f",c->balance_amount);
+    printf("\nPayment method(e.g:mastercard/visa/cash/android pay) :");
+    scanf("%s",&c->payment_method);
+    c->total_amount=(c->no_of_rooms*650);
+    c->balance_amount=c->total_amount-c->advance_paid;
 
 
-void insertMusicNodeAtBegin(){
-
-    struct musicNode *temp;
-    temp = createNewMusicNode();
-    struct musicNode *t;
-
-    if(head == NULL)
-        head = temp;
-
-        //printf("\nPlaylist is empty,inserted as first song");
-    t = head;
-
-        while(t->prev != NULL)
-            t = t->prev;
-
-        t = temp;
-        printf("\nSong added successfully at the beginning.");
+    printf("\nCustomer Name: ",c->customer_name);
+    printf("\nCheck-in date: ",c->check_in);
+    printf("\nCheck-out date: ",c->check_out);
+    printf("\nNumber of rooms booked: ",c->no_of_rooms);
+    printf("\nCustomer ID: ",c->identity_proof);
+    printf("\n\tRoom successfully booked");
 }
+void displayCustomerData(struct Customer_Details *c){
 
+//    struct Customer_Details c;
+    printf("\nCustomer Name: ",c->customer_name);
+    printf("\nCheck-in date: ",c->check_in);
+    printf("\nCheck-out date: ",c->check_out);
+    printf("\nNumber of rooms booked: ",c->no_of_rooms);
+    printf("\nCustomer ID: ",c->identity_proof);
 
-void insertMusicNodeAtEnd(){
-    struct musicNode *temp;
-    temp = createNewMusicNode();
-    struct musicNode *t;
-
-    if(head == NULL)
-    {
-        head = temp;
-        printf("\nPlaylist is empty,inserted as first song");
-    }
-    else
-    {
-        t = head;
-        while(t->next != NULL)
-        {
-            t = t->next;
-        }
-        t->next = temp;
-        printf("\nSong added successfully at the end.");
-    }
 }
-
-void viewPlayListForward(){
-    struct musicNode *temp;
-    //temp = (struct musicNode *)malloc(sizeof(struct musicNode));
-
-    if(head == NULL)
-        printf("\nPlaylist is empty !");
-
-    temp = head;
-    while(temp != NULL)
-    {
-        printf("\nSong Name : %s",temp->songName);
-        temp = temp->next;
-    }
-}
-
-void viewPlayListBackward(){
- struct musicNode *temp,*tracker;
-
- if(head == NULL)
-    printf("\nPlaylist is empty !");
-
-    tracker = head;
-    while(tracker->next != NULL){
-        tracker = tracker->next;
-    }
-    temp = tracker;
-    while(temp != NULL){
-        printf("\nSong Name : %s",temp->songName);
-        temp = temp->prev;
-    }
-}
-
-
 int main()
 {
-    int choice;
-    do{
-
-        printf("\n1.Insert song at first position\n2.Insert song at last position\n3.View playlist forward\n4.View playlist backward\n5.Exit");
-        printf("\nEnter your choice:");
-        scanf("%d",&choice);
-
-        switch(choice){
-
-            case 1:insertMusicNodeAtBegin();
-                   break;
-            case 2:insertMusicNodeAtEnd();
-                    break;
-            case 3:viewPlayListForward();
-                    break;
-            case 4:viewPlayListBackward();
-                    break;
-            case 5:exit(0);
-
-            default:printf("\nEnter valid choice !");
-        }
-
-    }while(choice <6);
+    struct Customer_Details c;
+    acceptCustomerData(&c);
+    //displayCustomerData(&c);
     return 0;
 }
