@@ -1,13 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 int num_of_customers,i;
-
 struct Customer_Details{
-
     char customer_name[20],city[20],check_in[8],check_out[8],identity_proof[20],payment_method[20];
     int no_of_rooms,no_of_guests,room_no_alloted;
     float advance_paid,balance_amount,total_amount;
-
 };
 void acceptCustomerData(struct Customer_Details *c){
 
